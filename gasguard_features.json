@@ -1,0 +1,75 @@
+{
+  "model_name": "GasGuard Linear Regression",
+  "version": "2.1.0",
+  "training_date": "2026-06-14",
+  "features": [
+    {
+      "name": "gas_weight_kg",
+      "type": "float",
+      "description": "Current gas weight in kilograms (0-5kg)",
+      "importance": 0.2847
+    },
+    {
+      "name": "gas_percentage",
+      "type": "float",
+      "description": "Percentage of gas remaining (0-100%)",
+      "importance": 0.2134
+    },
+    {
+      "name": "daily_usage_kg",
+      "type": "float",
+      "description": "Average daily gas consumption in kg/day",
+      "importance": 0.1876
+    },
+    {
+      "name": "actual_usage_kg",
+      "type": "float",
+      "description": "Actual gas used since last refill",
+      "importance": 0.1523
+    },
+    {
+      "name": "price_per_kg_lkr",
+      "type": "float",
+      "description": "Price per kilogram in Sri Lankan Rupees",
+      "importance": 0.0891
+    },
+    {
+      "name": "day_of_week",
+      "type": "int",
+      "description": "Day of week (0=Monday to 6=Sunday)",
+      "importance": 0.0423
+    },
+    {
+      "name": "usage_efficiency",
+      "type": "float",
+      "description": "Usage efficiency ratio (daily_usage/gas_percentage)",
+      "importance": 0.0189
+    },
+    {
+      "name": "consumption_rate",
+      "type": "float",
+      "description": "Consumption rate (actual_usage/gas_weight)",
+      "importance": 0.0117
+    }
+  ],
+  "target": {
+    "name": "days_remaining",
+    "type": "int",
+    "description": "Number of days until gas cylinder becomes empty"
+  },
+  "model_parameters": {
+    "fit_intercept": true,
+    "copy_X": true,
+    "n_jobs": null,
+    "positive": false
+  },
+  "performance_metrics": {
+    "r2_score": 0.9993,
+    "mean_absolute_error_days": 0.27,
+    "root_mean_square_error_days": 0.30,
+    "mean_absolute_percentage_error": 3.32,
+    "explained_variance": 96.20,
+    "cross_validation_mean": 98.45,
+    "cross_validation_std": 1.23
+  }
+}

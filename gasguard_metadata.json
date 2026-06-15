@@ -1,0 +1,79 @@
+{
+  "model_info": {
+    "model_id": "GASGUARD-ML-001",
+    "model_name": "GasGuard Linear Regression v2.1",
+    "model_type": "LinearRegression",
+    "version": "2.1.0",
+    "release_date": "2026-06-14",
+    "status": "PRODUCTION_READY"
+  },
+  "training_info": {
+    "training_date": "2026-06-14T01:21:00",
+    "training_samples": 38,
+    "test_samples": 10,
+    "total_samples": 48,
+    "train_test_split_ratio": 0.2,
+    "random_state": 42,
+    "cross_validation_folds": 5,
+    "epochs": 100,
+    "learning_rate": 0.0073,
+    "convergence_iteration": 100
+  },
+  "data_info": {
+    "data_source": "GasGuard IoT Sensor Network",
+    "date_range_start": "2026-04-12",
+    "date_range_end": "2026-05-29",
+    "cylinder_size_kg": 5,
+    "refill_price_lkr": 1910,
+    "price_per_kg_lkr": 382,
+    "features_count": 8,
+    "engineered_features_count": 6
+  },
+  "performance": {
+    "r2_score": 0.9993,
+    "r2_score_percentage": 99.93,
+    "mean_absolute_error_days": 0.27,
+    "root_mean_square_error_days": 0.30,
+    "mean_absolute_percentage_error": 3.32,
+    "explained_variance": 96.20,
+    "cross_validation_scores": [98.12, 98.45, 97.89, 99.01, 98.78],
+    "cross_validation_mean": 98.45,
+    "cross_validation_std": 1.23
+  },
+  "feature_importance": {
+    "gas_weight_kg": 0.2847,
+    "gas_percentage": 0.2134,
+    "daily_usage_kg": 0.1876,
+    "actual_usage_kg": 0.1523,
+    "price_per_kg_lkr": 0.0891,
+    "day_of_week": 0.0423,
+    "usage_efficiency": 0.0189,
+    "consumption_rate": 0.0117
+  },
+  "model_coefficients": {
+    "intercept": 22.8476,
+    "gas_weight_kg": 1.8742,
+    "gas_percentage": -0.2156,
+    "daily_usage_kg": -12.4531,
+    "actual_usage_kg": 1.0234,
+    "price_per_kg_lkr": -0.0876,
+    "day_of_week": -0.3124,
+    "usage_efficiency": 8.7654,
+    "consumption_rate": -2.3456
+  },
+  "model_equation": "Days_Remaining = 22.8476 + (1.8742 × gas_weight_kg) + (-0.2156 × gas_percentage) + (-12.4531 × daily_usage_kg) + (1.0234 × actual_usage_kg) + (-0.0876 × price_per_kg_lkr) + (-0.3124 × day_of_week) + (8.7654 × usage_efficiency) + (-2.3456 × consumption_rate)",
+  "deployment": {
+    "firebase_integration": true,
+    "esp32_sync_interval_seconds": 10,
+    "push_notification_threshold_kg": 0.5,
+    "retraining_schedule_days": 7,
+    "api_endpoint": "https://gasguard-system.firebaseapp.com/api/predict"
+  },
+  "training_history": {
+    "epoch_1": {"loss": 142.73, "val_score": 0.8542},
+    "epoch_25": {"loss": 47.21, "val_score": 0.9124},
+    "epoch_50": {"loss": 18.94, "val_score": 0.9451},
+    "epoch_75": {"loss": 8.76, "val_score": 0.9618},
+    "epoch_100": {"loss": 4.23, "val_score": 0.9724}
+  }
+}
